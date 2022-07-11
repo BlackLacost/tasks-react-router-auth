@@ -1,13 +1,14 @@
 import { CssBaseline } from '@mui/material'
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { App } from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
+console.log(process.env.PUBLIC_URL)
+
 root.render(
-  <BrowserRouter>
+  <HashRouter basename="/">
     <CssBaseline />
     <App />
-  </BrowserRouter>
+  </HashRouter>
 )

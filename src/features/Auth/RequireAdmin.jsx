@@ -1,4 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom'
+import { routes } from '../../App'
 import { NotFoundPage } from '../../pages/NotFoundPage'
 import { useAuth } from './useAuth'
 
@@ -7,7 +8,7 @@ export const RequireAdmin = ({ children }) => {
   const { user } = useAuth()
 
   if (!user) {
-    return <Navigate to="/login" state={{ from: location }} />
+    return <Navigate to={routes.login} state={{ from: location }} />
   }
 
   if (user.role !== 'ADMIN') {

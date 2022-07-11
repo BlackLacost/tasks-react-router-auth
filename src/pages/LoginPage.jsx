@@ -11,6 +11,7 @@ import {
   Typography,
 } from '@mui/material'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { routes } from '../App'
 import { useAuth } from '../features/Auth/useAuth'
 
 export const LoginPage = () => {
@@ -18,10 +19,9 @@ export const LoginPage = () => {
   const location = useLocation()
   const { login } = useAuth()
 
-  const fromPage = location.state?.from?.pathname || '/'
-  console.log(location.state)
+  const fromPage = location.state?.from?.pathname || routes.home
 
-  const isLogin = location.pathname === '/login'
+  const isLogin = location.pathname === routes.login
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -71,10 +71,10 @@ export const LoginPage = () => {
                   <Typography>
                     Ещё нет аккаунта?{' '}
                     <Link
-                      to="/registration"
+                      to={routes.registration}
                       onClick={(e) => {
                         e.preventDefault()
-                        navigate('/registration', {
+                        navigate(routes.registration, {
                           state: location.state,
                           replace: true,
                         })
@@ -87,10 +87,10 @@ export const LoginPage = () => {
                   <Typography>
                     Уже зарегистрированы?{' '}
                     <Link
-                      to="/login"
+                      to={routes.login}
                       onClick={(e) => {
                         e.preventDefault()
-                        navigate('/login', {
+                        navigate(routes.login, {
                           state: location.state,
                           replace: true,
                         })

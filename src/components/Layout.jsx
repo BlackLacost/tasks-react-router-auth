@@ -18,6 +18,7 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom'
+import { routes } from '../App'
 import { useAuth } from '../features/Auth/useAuth'
 
 export const Layout = () => {
@@ -37,10 +38,10 @@ export const Layout = () => {
             }}
           >
             <Stack direction="row" spacing={2}>
-              <Link to="/" color="text.primary">
+              <Link to={routes.home} color="text.primary">
                 <Typography variant="h6">Главная</Typography>
               </Link>
-              <Link to="/shop" color="text.primary">
+              <Link to={routes.shop} color="text.primary">
                 <Typography variant="h6">Магазин</Typography>
               </Link>
             </Stack>
@@ -56,7 +57,7 @@ export const Layout = () => {
                 >
                   {user.role === 'ADMIN' && (
                     <MenuItem
-                      to="/admin"
+                      to={routes.admin}
                       component={LinkRouter}
                       onClick={() => setAnchorEl(null)}
                     >
@@ -64,7 +65,7 @@ export const Layout = () => {
                     </MenuItem>
                   )}
                   <MenuItem
-                    to="/profile"
+                    to={routes.profile}
                     component={LinkRouter}
                     onClick={() => setAnchorEl(null)}
                   >
@@ -73,7 +74,7 @@ export const Layout = () => {
                   <MenuItem
                     onClick={() => {
                       logout()
-                      navigate('/', { replace: true })
+                      navigate(routes.home, { replace: true })
                     }}
                   >
                     Выйти
@@ -85,7 +86,7 @@ export const Layout = () => {
                 variant="contained"
                 color="primary"
                 onClick={() =>
-                  navigate('/login', {
+                  navigate(routes.login, {
                     state: { from: location },
                     replace: true,
                   })
