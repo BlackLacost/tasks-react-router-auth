@@ -1,6 +1,6 @@
 {
-  "homepage": "https://BlackLacost.github.io/react-auth-template/",
-  "name": "react-auth-template",
+  "homepage": "https://BlackLacost.github.io/tasks-react-router-auth/",
+  "name": "tasks-react-router-auth",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
